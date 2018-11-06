@@ -5,19 +5,27 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-# Creates and names a library, sets it as either STATIC
-# or SHARED, and provides the relative paths to its source code.
-# You can define multiple libraries, and CMake builds them for you.
-# Gradle automatically packages shared libraries with your APK.
+#set_target_properties(Ydot-lib PROPERTIES COMPILE_DEFINITIONS "YDOT_LIB=1")
+#set_target_properties(Ydot-lib PROPERTIES COMPILE_DEFINITIONS "WirePen")
+aux_source_directory (I:/caiOid/Lib_2dCode/_yDotC/src  SRCS_LIB_DIR)
+aux_source_directory (src/main/jni SRCS_LIB_DIR)
+
+include_directories(I:/caiOid/Lib_2dCode/_nTree)
+include_directories(I:/caiOid/Lib_2dCode/_yDotC/src)
+
+add_definitions(-DYDOT_LIB=1 -DANDROID_LIB=1 -DWirePen=1)
 
 add_library( # Sets the name of the library.
-        native-lib
+        Ydot-lib
 
         # Sets the library as a shared library.
         SHARED
 
         # Provides a relative path to your source file(s).
-        src/main/cpp/native-lib.cpp)
+        I:/caiOid/Lib_2dCode/_nTree/IDKey.c
+        ${SRCS_LIB_DIR})
+
+
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -37,7 +45,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        native-lib
+        Ydot-lib
 
         # Links the target library to the log library
         # included in the NDK.

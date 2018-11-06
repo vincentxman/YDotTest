@@ -5,7 +5,7 @@ apply plugin: 'com.android.library' //TODO 改成库
 android {
     compileSdkVersion 28
     defaultConfig {
-        //applicationId "com.cdgo.libydot" //TODO 注解掉
+        //applicationId "com.cdgo.libydot" //TODO 改成库 注解掉
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -13,6 +13,13 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
+                // Passes optional arguments to CMake.
+                //arguments "-DYDOT_LIB=1", "-DANDROID_LIB=1", "-DWirePen=1"
+
+                // Sets optional flags for the C compiler.
+                //cFlags "-D_EXAMPLE_C_FLAG1", "-D_EXAMPLE_C_FLAG2"
+
+                // Sets a flag to enable format macro constants for the C++ compiler.
                 cppFlags "-frtti -fexceptions"
             }
         }
