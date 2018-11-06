@@ -12,7 +12,7 @@ extern "C" {
 #endif
 
 #define   LOG_TAG    "LibYdot"
-#define   LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
+#define   LOGI(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #define   LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 //------------------------------------------------
 static JNIEnv *g_env=NULL;
@@ -66,7 +66,14 @@ void Oid_InitYDotDriver(void)
 //Android系统加载JNI Lib后第一调用 JNI_OnLoad()
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
 {
-    Oid_InitYDotDriver();
+    try {
+        Oid_InitYDotDriver();
+    }catch (...){
+        LOGE("Error when run Oid_InitYDotDriver()");
+    }
+
+
+
     return JNI_VERSION_1_6;
 }
 
@@ -78,10 +85,10 @@ JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
 void Oid_Decode(U8 *pDataIn,long lenData)
 {
     BoolX b=yResetBuf();//Before calling "yDecodeImage()" must call "yResetBuf()" first.
-    LOGI("b:%d",b);
+    //LOGI("b:%d",b);
 
     U8 *pImg=yGetImageBuf();//Should put camera image into this buffer.
-    LOGI("pImg:%p",pImg);
+    //LOGI("pImg:%p",pImg);
 
     memcpy(pImg,pDataIn,lenData);
 
@@ -98,14 +105,20 @@ JNIEXPORT jstring JNICALL Java_com_cdgo_libydot_PenJni_getVersion(JNIEnv *env, j
 
 JNIEXPORT void JNICALL Java_com_cdgo_libydot_PenJni_decodeBuf(JNIEnv *env, jobject obj, jbyteArray dataIn)
 {
-    SetEnv();
+    try{
+        SetEnv();
 
-    jbyte   *pDataIn = env->GetByteArrayElements(dataIn, 0);
-    jsize   lenData = env->GetArrayLength(dataIn);
-    LOGI("pDataIn:%d",*pDataIn);
-    LOGI("lenData:%d",lenData);
+        jbyte   *pDataIn = env->GetByteArrayElements(dataIn, 0);
+        jsize   lenData = env->GetArrayLength(dataIn);
+        LOGI("pDataIn:%d",*pDataIn);
+        LOGI("lenData:%d",lenData);
 
-    Oid_Decode((U8 *)pDataIn,lenData);
+        Oid_Decode((U8 *)pDataIn,lenData);
+    }catch (...){
+        LOGE("Error when run Oid_Decode()");
+    }
+
+
 }
 
 
