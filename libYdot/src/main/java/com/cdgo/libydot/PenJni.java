@@ -7,7 +7,7 @@ public class PenJni {
         System.loadLibrary("Ydot-lib");
     }
 
-    public final native String stringFromJNI();
+    public final native String getVersion();
 
     protected final native void decodeBuf(byte[] img);
     //----------------------------------------------

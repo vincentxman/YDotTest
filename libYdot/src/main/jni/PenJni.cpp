@@ -12,7 +12,7 @@ extern "C" {
 #endif
 
 #define   LOG_TAG    "LibYdot"
-#define   LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
+#define   LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define   LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 //------------------------------------------------
 static JNIEnv *g_env=NULL;
@@ -22,22 +22,22 @@ static jobject g_obj=NULL;
 //When the pen point close to the coded paper. Not necessarily successful decoding.
 void cbTouch(In BoolX bTouch)
 {
-    LOGD("cpp: cbTouch:%d",bTouch);
+    LOGI("cpp: cbTouch:%d",bTouch);
     jclass LibYdotJni = g_env->GetObjectClass(g_obj);
     jmethodID mTouch = g_env->GetMethodID(LibYdotJni, "cbTouch", "(Z)V");
 
-    LOGD("cpp: cbTouch:%d ->  mTouch=%p",bTouch,(void *)mTouch);
+    LOGI("cpp: cbTouch:%d ->  mTouch=%p",bTouch,(void *)mTouch);
     g_env->CallVoidMethod(g_obj,mTouch,(jboolean)bTouch);
 }
 
 //When decoding success, the same continuous id will only be invoked once.
 void cbRecognized(In U32 id)
 {
-    LOGD("cpp: cbRecognized:%ld",id);
+    LOGI("cpp: cbRecognized:%ld",id);
     jclass LibYdotJni = g_env->GetObjectClass(g_obj);
     jmethodID mRecognized = g_env->GetMethodID(LibYdotJni, "cbRecognized", "(J)V");
 
-    LOGD("cpp: cbRecognized:%ld -> mRecognized=%p",id,(void *)mRecognized);
+    LOGI("cpp: cbRecognized:%ld -> mRecognized=%p",id,(void *)mRecognized);
     g_env->CallVoidMethod(g_obj,mRecognized,(jlong)id);
 
     //g_env->GetByteArrayRegion();
@@ -52,8 +52,8 @@ void Oid_InitYDotDriver(void)
     U32 memSize=yGetFixedMemSize();		//Ask how much memory need.
     iniData.pFixedMem=malloc(memSize);//memory allocate
 
-    LOGD("memSize:%ld",memSize);
-    LOGD("pFixedMem:%p",iniData.pFixedMem);
+    LOGI("memSize:%ld",memSize);
+    LOGI("pFixedMem:%p",iniData.pFixedMem);
 
     //step 2: Set decode result processing function. When the "Event" occur will triger the callback.
     iniData.fTouch=cbTouch; 			//Event: When the pen point close to the coded paper. Not necessarily successful decoding.
@@ -78,10 +78,10 @@ JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
 void Oid_Decode(U8 *pDataIn,long lenData)
 {
     BoolX b=yResetBuf();//Before calling "yDecodeImage()" must call "yResetBuf()" first.
-    LOGD("b:%d",b);
+    LOGI("b:%d",b);
 
     U8 *pImg=yGetImageBuf();//Should put camera image into this buffer.
-    LOGD("pImg:%p",pImg);
+    LOGI("pImg:%p",pImg);
 
     memcpy(pImg,pDataIn,lenData);
 
@@ -90,10 +90,10 @@ void Oid_Decode(U8 *pDataIn,long lenData)
 
 
 //*********************************************************************
-JNIEXPORT jstring JNICALL Java_com_cdgo_libydot_PenJni_stringFromJNI(JNIEnv *env, jobject obj)
+JNIEXPORT jstring JNICALL Java_com_cdgo_libydot_PenJni_getVersion(JNIEnv *env, jobject obj)
 {
-    std::string hello = "Hello from C++, Vincent is vector";
-    return env->NewStringUTF(hello.c_str());
+    std::string version = "1.0.0";
+    return env->NewStringUTF(version.c_str());
 }
 
 JNIEXPORT void JNICALL Java_com_cdgo_libydot_PenJni_decodeBuf(JNIEnv *env, jobject obj, jbyteArray dataIn)
@@ -102,8 +102,8 @@ JNIEXPORT void JNICALL Java_com_cdgo_libydot_PenJni_decodeBuf(JNIEnv *env, jobje
 
     jbyte   *pDataIn = env->GetByteArrayElements(dataIn, 0);
     jsize   lenData = env->GetArrayLength(dataIn);
-    LOGD("pDataIn:%d",*pDataIn);
-    LOGD("lenData:%d",lenData);
+    LOGI("pDataIn:%d",*pDataIn);
+    LOGI("lenData:%d",lenData);
 
     Oid_Decode((U8 *)pDataIn,lenData);
 }
