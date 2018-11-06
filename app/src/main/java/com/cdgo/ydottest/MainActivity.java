@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // ATTENTION: This was auto-generated to handle app links.
-        Intent appLinkIntent = getIntent();
-        String appLinkAction = appLinkIntent.getAction();
-        Uri appLinkData = appLinkIntent.getData();
+//        Intent appLinkIntent = getIntent();
+//        String appLinkAction = appLinkIntent.getAction();
+//        Uri appLinkData = appLinkIntent.getData();
 
         PenJni pj=new PenJni();
         String s=pj.stringFromJNI()+"...";

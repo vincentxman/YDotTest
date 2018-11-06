@@ -9,9 +9,11 @@ cmake_minimum_required(VERSION 3.4.1)
 #set_target_properties(Ydot-lib PROPERTIES COMPILE_DEFINITIONS "WirePen")
 aux_source_directory (I:/caiOid/Lib_2dCode/_yDotC/src  SRCS_LIB_DIR)
 aux_source_directory (src/main/jni SRCS_LIB_DIR)
+aux_source_directory (src/main/jni/interface SRCS_LIB_DIR)
 
 include_directories(I:/caiOid/Lib_2dCode/_nTree)
 include_directories(I:/caiOid/Lib_2dCode/_yDotC/src)
+include_directories(src/main/jni/interface)
 
 add_definitions(-DYDOT_LIB=1 -DANDROID_LIB=1 -DWirePen=1)
 
@@ -24,8 +26,6 @@ add_library( # Sets the name of the library.
         # Provides a relative path to your source file(s).
         I:/caiOid/Lib_2dCode/_nTree/IDKey.c
         ${SRCS_LIB_DIR})
-
-
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
