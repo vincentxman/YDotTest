@@ -89,6 +89,11 @@ void yInitYdot(IniData *idata)
     yDot_init(&memCB,&ioCB,NULL,NULL,g_idata.pFixedMem);
 }
 
+void yFreeYdot()
+{
+    yDot_close();
+}
+
 U8 *yGetImageBuf(void)
 {
     return yDotWhole_Buf();

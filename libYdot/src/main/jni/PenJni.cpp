@@ -69,15 +69,13 @@ JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved)
     }catch (...){
         LOGE("cpp: Error when run Oid_InitYDotDriver()");
     }
-
-
-
     return JNI_VERSION_1_6;
 }
 
 JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
 {
     LOGI("JNI_OnUnload()");
+    yFreeYdot();
 }
 
 void Oid_Decode(U8 *pDataIn,long lenData)
@@ -86,7 +84,11 @@ void Oid_Decode(U8 *pDataIn,long lenData)
     //LOGI("cpp: yResetBuf(): %d",b);
 
     U8 *pImg=yGetImageBuf();//Should put camera image into this buffer.
-    //LOGI("cpp: yGetImageBuf(): %p",pImg);
+    if(pImg==NULL)
+    {
+        LOGE("cpp: Error when run yGetImageBuf()");
+        return ;
+    }
 
     memcpy(pImg,pDataIn,lenData);
 

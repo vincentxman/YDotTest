@@ -2,6 +2,10 @@ package com.cdgo.libydot;
 
 import android.graphics.Bitmap;
 
+import com.cdgo.tools.Img;
+
+import java.util.Arrays;
+
 public class Pen extends PenJni {
     public interface OnTouchListener {
         void onTouch(boolean bTouch);
@@ -12,14 +16,16 @@ public class Pen extends PenJni {
         _touchListener=touchListener;
     }
     //-------------------------------------------------------------
-    public void decode(Bitmap bmp){
-        if(bmp==null)
-            return;
-
-        byte[] data=captureImg(bmp);
+    public void decode(byte[] data){
         decodeBuf(data);
     }
 
+    public byte[] getImgRawData(Object obj,String pathName) {
+        Bitmap bmp=Img.getBmpRaw(obj,pathName);
+        if(bmp==null)
+            return null;
+        return captureImg(bmp);
+    }
     //call back
     @Override
     protected void cbTouch(boolean bTouch){

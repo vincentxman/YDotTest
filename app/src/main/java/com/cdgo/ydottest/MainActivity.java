@@ -15,12 +15,13 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity implements Pen.OnTouchListener {
 
     static private Pen _pen=new Pen();
-    String imagePath="";
-    int idx=1;
+    private String imagePath="/res/raw/a1.bmp";
+    byte buf[]=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(Constants.TAG, "onCreate()**********");
         setContentView(R.layout.activity_main);
 
         String s=_pen.getVersion()+"...";
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
         tv.setText(s);
 
         _pen.setOnTouchListener(this);
+
+       buf= _pen.getImgRawData(this,imagePath);
     }
 
     @Override
@@ -45,14 +48,49 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
     }
 
     public void onTest(View view) {
-        //step 1:
-        idx=1;
-        imagePath=String.format(Locale.US,"/res/raw/a%d.bmp",idx++);
-        idx%=10;
-        if(idx==0)
-            idx=1;
-
-        Log.d(Constants.TAG,imagePath+"........");
-        _pen.decode(Img.getBmpRaw(this,imagePath));
+        _pen.decode(buf);
     }
+    //------------------------------------------
+
+    private static final int STACK_TRACE_INDEX = 3;
+    private static final String SUFFIX = ".java";
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.i(Constants.TAG, "onStart()**********");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.i(Constants.TAG, "onResume()**********");
+    }
+    //-----------------------------
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(Constants.TAG, "onPause()**********");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(Constants.TAG, "onStop()**********");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(Constants.TAG, "onRestart()**********");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(Constants.TAG, "onDestroy()**********");
+    }
+
 }

@@ -13,13 +13,9 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                // Passes optional arguments to CMake.
-                //arguments "-DYDOT_LIB=1", "-DANDROID_LIB=1", "-DWirePen=1"
-
-                // Sets optional flags for the C compiler.
-                //cFlags "-D_EXAMPLE_C_FLAG1", "-D_EXAMPLE_C_FLAG2"
-
-                // Sets a flag to enable format macro constants for the C++ compiler.
+                //gcc flag:
+                //-f rtti 开启RTTI的支持（dynamic_cast 和 typeid 需要用到），和vs c++不同，这在gcc中是默认选项。使用"-fno-rtti"将其禁用。
+                //-f exceptions 编译器需要支持 Exception 机制
                 cppFlags "-frtti -fexceptions"
             }
         }

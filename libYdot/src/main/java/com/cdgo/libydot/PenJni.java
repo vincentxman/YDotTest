@@ -6,6 +6,9 @@ public class PenJni {
     static {
         System.loadLibrary("Ydot-lib");
     }
+    public PenJni(){
+        int x=5;
+    }
 
     public final native String getVersion();
 
