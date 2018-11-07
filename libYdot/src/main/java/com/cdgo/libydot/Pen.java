@@ -15,9 +15,16 @@ public class Pen extends PenJni {
     public void setOnTouchListener(OnTouchListener touchListener){
         _touchListener=touchListener;
     }
+
     //-------------------------------------------------------------
+    //只读一个码
     public void decode(byte[] data){
-        decodeBuf(data);
+        decodeBuf(data,false);
+    }
+
+    //点读, 连续解同样的码时只返回第一个码.
+    public void decodeLoop(byte[] data){
+        decodeBuf(data,true);
     }
 
     public byte[] getImgRawData(Object obj,String pathName) {

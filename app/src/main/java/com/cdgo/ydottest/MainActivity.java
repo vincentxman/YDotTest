@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.cdgo.libydot.Constants;
 import com.cdgo.libydot.Pen;
-import com.cdgo.tools.Img;
 
 import java.util.Locale;
 
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
 
     static private Pen _pen=new Pen();
     private String imagePath="/res/raw/a1.bmp";
-    byte buf[]=null;
+    byte cameraBuf[]=_pen.getImgRawData(this,imagePath);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
 
         _pen.setOnTouchListener(this);
 
-       buf= _pen.getImgRawData(this,imagePath);
+       //cameraBuf = _pen.getImgRawData(this,imagePath);
     }
 
     @Override
@@ -42,13 +41,16 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
 
     @Override
     public void onRecognized(long id) {
-        String msg=String.format(Locale.US,"image: %s ------> id: %d",imagePath,id);
+        String msg=String.format(Locale.US,"image decoded: %s ------> id: %d",imagePath,id);
         Log.i(Constants.TAG,msg);
         //点击辨识到码是 id
     }
 
     public void onTest(View view) {
-        _pen.decode(buf);
+        long t1=System.nanoTime();//currentTimeMillis();
+        _pen.decode(cameraBuf);
+        long t2=System.nanoTime();
+        Log.i(Constants.TAG,String.format("decode timespan: %.3fms",1.0*(t2-t1)/1000/1000));
     }
     //------------------------------------------
 

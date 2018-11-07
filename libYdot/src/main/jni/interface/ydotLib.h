@@ -42,7 +42,7 @@ U32		yGetFixedMemSize(void);
 void 	yInitYdot(IniData *idata);
 U8 		*yGetImageBuf(void);
 BoolX 	yResetBuf(void);
-BoolX 	yDecodeImage(void);
+BoolX 	yDecodeImage(BoolX bLoop);
 void    yFreeYdot(void);
 
 #endif //YDOTTEST_YDOTLIB_H

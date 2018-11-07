@@ -104,7 +104,7 @@ BoolX yResetBuf(void)
     return yDotWhole_resetBuf();
 }
 
-BoolX yDecodeImage(void)
+BoolX yDecodeImage(BoolX bLoop)
 {
     IDKey idKey;
     Num8 state;
@@ -112,6 +112,6 @@ BoolX yDecodeImage(void)
     if(g_cbYdotInRange==NULL)//防止被Hk; 當g_cbYdotInRange=NULL時 就無法限制碼的使用範圍。
         return FALSE;
 
-    return yDotWhole_decode(&idKey,&state);
+    return yDotWhole_decode(&idKey,&state, bLoop);
 }
 

@@ -12,7 +12,7 @@ public class PenJni {
 
     public final native String getVersion();
 
-    protected final native void decodeBuf(byte[] img);
+    protected final native void decodeBuf(byte[] img,boolean bLoop);
     //----------------------------------------------
     //call back from JNI
     //When the pen point close to the coded paper. Not necessarily successful decoding.

@@ -78,7 +78,7 @@ JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
     yFreeYdot();
 }
 
-void Oid_Decode(U8 *pDataIn,long lenData)
+void Oid_Decode(U8 *pDataIn,long lenData,BoolX bLoop)
 {
     BoolX b=yResetBuf();//Before calling "yDecodeImage()" must call "yResetBuf()" first.
     //LOGI("cpp: yResetBuf(): %d",b);
@@ -92,7 +92,7 @@ void Oid_Decode(U8 *pDataIn,long lenData)
 
     memcpy(pImg,pDataIn,lenData);
 
-    yDecodeImage();//Result -> see callback function "cbTouch" & "cbRecognized"
+    yDecodeImage(bLoop);//Result -> see callback function "cbTouch" & "cbRecognized"
 }
 
 
@@ -105,7 +105,7 @@ JNIEXPORT jstring JNICALL Java_com_cdgo_libydot_PenJni_getVersion(JNIEnv *env, j
     return env->NewStringUTF(version.c_str());
 }
 
-JNIEXPORT void JNICALL Java_com_cdgo_libydot_PenJni_decodeBuf(JNIEnv *env, jobject obj, jbyteArray dataIn)
+JNIEXPORT void JNICALL Java_com_cdgo_libydot_PenJni_decodeBuf(JNIEnv *env, jobject obj, jbyteArray dataIn, jboolean bLoop)
 {
     try{
         SetEnv();
@@ -114,7 +114,7 @@ JNIEXPORT void JNICALL Java_com_cdgo_libydot_PenJni_decodeBuf(JNIEnv *env, jobje
         jsize   lenData = env->GetArrayLength(dataIn);
         LOGI("cpp: Java_com_cdgo_libydot_PenJni_decodeBuf() {image pDataIn:%d, lenData:%d}",*pDataIn,lenData);
 
-        Oid_Decode((U8 *)pDataIn,lenData);
+        Oid_Decode((U8 *)pDataIn,lenData,bLoop);
     }catch (...){
         LOGE("cpp: Error when run Oid_Decode()");
     }
