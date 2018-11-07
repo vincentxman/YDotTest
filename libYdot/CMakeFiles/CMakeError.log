@@ -1,0 +1,14 @@
+Determining if the C compiler works failed with the following output:
+
+
+Determining if the C compiler works failed with the following output:
+Change Dir: I:/_AndroidPrj/YDotTest/libYdot/CMakeFiles/CMakeTmp
+
+Run Build Command:"G:\Android\sdk\cmake\3.6.4111459\bin\ninja.exe" "cmTC_42b33"
+ninja: error: loading 'build.ninja': 系统找不到指定的文件。
+
+
+
+Determining if the C compiler works failed with the following output:
+
+

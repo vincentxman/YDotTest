@@ -1,0 +1,3 @@
+I:/_AndroidPrj/YDotTest/libYdot/CMakeFiles/Ydot-lib.dir
+I:/_AndroidPrj/YDotTest/libYdot/CMakeFiles/edit_cache.dir
+I:/_AndroidPrj/YDotTest/libYdot/CMakeFiles/rebuild_cache.dir

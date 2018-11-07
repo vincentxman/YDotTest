@@ -3,6 +3,14 @@ apply plugin: 'com.android.library' //TODO 改成库
 
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'vincent'
+            keyPassword 'Bjwq83)4!L@lobIO'
+            storeFile file('G:/Android/android-release.jks')
+            storePassword 'RsfJw7c@FG$ECBPLe'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         //applicationId "com.cdgo.libydot" //TODO 改成库 注解掉
@@ -34,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'

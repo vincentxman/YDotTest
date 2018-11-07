@@ -1,0 +1,94 @@
+
+{
+	"buildFiles" : [ "I:/_AndroidPrj/YDotTest/libYdot/CMakeLists.txt" ],
+	"cFileExtensions" : [ "c" ],
+	"cleanCommands" : 
+	[
+		"G:\\Android\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build I:\\_AndroidPrj\\YDotTest\\libYdot --target clean"
+	],
+	"cppFileExtensions" : [ "cpp" ],
+	"libraries" : 
+	{
+		"Ydot-lib-Release-x86" : 
+		{
+			"abi" : "x86",
+			"artifactName" : "Ydot-lib",
+			"buildCommand" : "G:\\Android\\sdk\\cmake\\3.6.4111459\\bin\\cmake.exe --build I:\\_AndroidPrj\\YDotTest\\libYdot --target Ydot-lib",
+			"buildType" : "release",
+			"files" : 
+			[
+
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/CameraSpec.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/TraceLevel.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/yAxisCoord.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/yAxisCoord_Data.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/yDotCRC.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/yDotScan.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/yDotSpace.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/yPattern.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/_rsa.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				},
+				
+				{
+					"flags" : "  --target=i686-none-linux-android21 --gcc-toolchain=G:/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/windows-x86_64 --sysroot=G:/Android/sdk/ndk-bundle/sysroot -DANDROID_LIB=1 -DWirePen=1 -DYDOT_LIB=1 -DYdot_lib_EXPORTS -II:\\caiOid\\Lib_2dCode\\_nTree  -isystem G:/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android -g -DANDROID -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -Wa,--noexecstack -Wformat -Werror=format-security  -O2 -DNDEBUG  -fPIC      -c ",
+					"src" : "I:/caiOid/Lib_2dCode/_yDotC/src/_y.c",
+					"workingDirectory" : "I:/_AndroidPrj/YDotTest/libYdot"
+				}
+			],
+			"output" : "I:/_AndroidPrj/YDotTest/libYdot/build/intermediates/cmake/release/obj/x86/libYdot-lib.so",
+			"toolchain" : "4278636813"
+		}
+	},
+	"toolchains" : 
+	{
+		"4278636813" : 
+		{
+			"cCompilerExecutable" : "G:/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "G:/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+		}
+	}
+}

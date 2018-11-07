@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://I:/caiOid/Lib_2dCode/_nTree/_config_module.h" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_nTree/base64.h" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_nTree/caculator.h" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_nTree/nTree.h" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_nTree/ntreetype.h" charset="GBK" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/CameraSpec.h" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/_rsa.c" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/_y.h" charset="GBK" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/_yDot.h" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/yAxisCoord.c" charset="GBK" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/yAxisCoord.h" charset="GBK" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/yDotScan.c" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/yPattern.c" charset="GB2312" />
+    <file url="file://I:/caiOid/Lib_2dCode/_yDotC/src/yPattern.h" charset="GB2312" />
+  </component>
+</project>

@@ -1,6 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        config {
+            keyAlias 'vincent'
+            keyPassword 'Bjwq83)4!L@lobIO'
+            storeFile file('G:/Android/android-release.jks')
+            storePassword 'RsfJw7c@FG$ECBPLe'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.cdgo.ydottest"
