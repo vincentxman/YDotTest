@@ -19,6 +19,7 @@ public class PenJni {
         }
     }
     protected void cbRecognized(long id){
+
         Log.d(Constants.TAG,"PenJni:cbRecognized()");
     }
 }

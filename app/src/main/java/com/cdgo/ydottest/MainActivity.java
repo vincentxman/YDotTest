@@ -10,6 +10,8 @@ import com.cdgo.libydot.Constants;
 import com.cdgo.libydot.Pen;
 import com.cdgo.tools.Img;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements Pen.OnTouchListener {
 
     static private Pen _pen=new Pen();
@@ -37,14 +39,15 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
 
     @Override
     public void onRecognized(long id) {
-        String msg=String.format("image: %s ------> id: %d",imagePath,id);
+        String msg=String.format(Locale.US,"image: %s ------> id: %d",imagePath,id);
         Log.i(Constants.TAG,msg);
         //点击辨识到码是 id
     }
 
     public void onTest(View view) {
         //step 1:
-        imagePath=String.format("/res/raw/a%d.bmp",idx++);
+        idx=1;
+        imagePath=String.format(Locale.US,"/res/raw/a%d.bmp",idx++);
         idx%=10;
         if(idx==0)
             idx=1;
