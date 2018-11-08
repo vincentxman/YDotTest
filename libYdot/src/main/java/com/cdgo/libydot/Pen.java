@@ -4,8 +4,6 @@ import android.graphics.Bitmap;
 
 import com.cdgo.tools.Img;
 
-import java.util.Arrays;
-
 public class Pen extends PenJni {
     public interface OnTouchListener {
         void onTouch(boolean bTouch);
@@ -22,7 +20,7 @@ public class Pen extends PenJni {
         decodeBuf(data,false);
     }
 
-    //点读, 连续解同样的码时只返回第一个码.
+    //点读, 连续解同样的码时只返回一次.
     public void decodeLoop(byte[] data){
         decodeBuf(data,true);
     }
