@@ -30,7 +30,7 @@ typedef struct CodeRange_Tag
     U32 end;
 }CodeRange;
 
-#define U32swap(x) ((x<<16)|(x>>16))
+#define U32swap(x) (((x<<16)|(x>>16))&(0xFFFFFFFF))
 #define U32mask(x) ((U32)(x^0x19680921))
 
 
@@ -47,6 +47,9 @@ static const CodeRange g_codeRange[]={
 static BoolX isCodeInRange(U32 num,const CodeRange *rg)
 {
     U8 i=0;
+    U32 beg=_o(rg[i].beg);
+    U32 end=_o(rg[i].end);
+
     for(;rg[i].end!=0;i++)
     {
         if(num>=_o(rg[i].beg) && num<=_o(rg[i].end) )
