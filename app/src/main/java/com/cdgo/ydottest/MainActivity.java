@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements Pen.OnTouchListen
 
     @Override
     public void onTouch(boolean bTouch) {
-        //Log.i(Constants.TAG,String.format(".%b",bTouch));
+       Log.i(Constants.TAG,String.format(".%b",bTouch));
         //if(bTouch) //当点到纸面时蓝灯闪一下
          //   blueLightBlink();
     }

@@ -5,10 +5,31 @@ import android.graphics.Bitmap;
 import com.cdgo.tools.Img;
 
 public class Pen extends PenJni {
+
     public interface OnTouchListener {
         void onTouch(boolean bTouch);
         void onRecognized(long id);
     }
+    public enum Type{
+        TOUCH, RECOGNIZED
+    }
+    protected class DoThread implements  Runnable{
+        public Type type;
+        public OnTouchListener _touchListener=null;
+        public long id;
+        boolean bTouch;
+        public void run(){
+            if(type==Type.TOUCH){
+                if(_touchListener!=null)
+                    _touchListener.onTouch(bTouch);
+            }
+            else if(type==Type.RECOGNIZED){
+                if(_touchListener!=null)
+                    _touchListener.onRecognized(id);
+            }
+        }
+    }
+
     private OnTouchListener _touchListener=null;
     public void setOnTouchListener(OnTouchListener touchListener){
         _touchListener=touchListener;
@@ -34,14 +55,30 @@ public class Pen extends PenJni {
     //call back
     @Override
     protected void cbTouch(boolean bTouch){
-        if(_touchListener!=null)
-            _touchListener.onTouch(bTouch);
+
+        DoThread doT=new DoThread();
+        doT.type=Type.TOUCH;
+        doT._touchListener=_touchListener;
+        doT.bTouch=bTouch;
+
+        Thread thread=new Thread(doT);
+        thread.start();
+
+//       if(_touchListener!=null)
+//           _touchListener.onTouch(bTouch);
     }
 
     @Override
     protected void cbRecognized(long id){
-        if(_touchListener!=null)
-            _touchListener.onRecognized(id);
+        DoThread doT=new DoThread();
+        doT.type=Type.RECOGNIZED;
+        doT._touchListener=_touchListener;
+        doT.id=id;
+
+        Thread thread=new Thread(doT);
+        thread.start();
+//        if(_touchListener!=null)
+//            _touchListener.onRecognized(id);
     }
 
     //private
